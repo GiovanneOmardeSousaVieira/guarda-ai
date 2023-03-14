@@ -1,0 +1,38 @@
+void main() {
+int salario = 1000;
+double imposto = 0.10;
+double vimposto = salario * imposto;
+double salariof = salario - visposto;
+
+print(' Salario = ${salario}\n imposto ${vimposto}\n Receber = ${salários}');
+
+double c = 30;
+double f = 1.8 + 32; 
+double k = (f + 459.67)/1.8;
+
+print(' C = ${c}\n F = ${f}\n K = ${k}
+
+int tempo 36126;
+int hora = tempo ~/3600;
+int reston = (tempo % 3600);
+int minutos = restoh ~/ 60; 
+int restom = resto % 60;
+
+print('${hora}${minutos}${restom}');
+
+int dinheiro = 11543 ;
+int cem = 11543-100;
+int restoc = 11543 % 100;
+int cinque = restoc ~/ 50;
+int restocinque = restoc % 50;
+int vinte = restocinque ~/ 20;
+int restovinte = restocinque % 20;
+int dez = restovinte ~/ 10;
+int restodez = restovinte % 10;
+int cinco = restodez ~/ 5:
+int restocinco = restodez % 5:
+int dois = restocinco ~/ 2;
+int restodois = restocinco % 2;
+int um = restodois ~/ 1;
+
+print(' Nota de 100: ${cem}/n Nota de 50: ${cinque}/n Nota de 20: ${vinte}/n Nota de 10: ${dez}/n Nota de 5: ${cinco}/n Nota de 2: ${dois}/n Moeda de 1: ${um}');
