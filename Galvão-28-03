@@ -1,0 +1,222 @@
+##Questão 1
+
+class Lampada {
+  bool acesa;
+
+  Lampada(this.acesa);
+
+  void acender() {
+    acesa = true;
+  }
+
+  void apagar() {
+    acesa = false;
+  }
+}
+
+void main() {
+  Lampada lampada = Lampada(false);
+  lampada.acender(); 
+  lampada.apagar();
+  lampada.acender();
+
+  print(lampada.acesa);
+}
+
+##Questão 2
+
+class Conta {
+  int numero;
+  double saldo;
+
+  Conta(this.numero, this.saldo);
+
+  void depositar(double valor) {
+    saldo += valor;
+  }
+
+  void sacar(double valor) {
+    if (saldo >= valor) {
+      saldo -= valor;
+    } else {
+      print("Saldo insuficiente!");
+    }
+  }
+}
+
+void main() {
+  Conta conta = Conta(123, 1000.0); 
+  conta.depositar(500.0); 
+  conta.sacar(200.0); 
+  conta.sacar(1500.0);
+
+  print(conta.saldo);
+}
+
+##Questão 3
+
+import 'dart:math';
+
+class Ponto {
+  double x;
+  double y;
+
+  Ponto(this.x, this.y);
+
+  double distanciaOrigem() {
+    return sqrt(pow(x, 2) + pow(y, 2));
+  }
+}
+
+void main() {
+  Ponto ponto = Ponto(4.0, 5.0); 
+  double distancia = ponto.distanciaOrigem(); 
+
+  print("A distância do ponto para a origem é: $distancia"); 
+}
+
+##Questão 4
+
+import 'dart:math';
+class Ponto {
+  double x;
+  double y;
+
+  Ponto(this.x, this.y);
+
+  double distanciaOrigem() {
+    return sqrt(pow(x, 2) + pow(y, 2));
+  }
+
+  @override
+  String toString() {
+    return "($x, $y)";
+  }
+}
+
+void main() {
+  Ponto ponto = Ponto(4.0, 5.0); 
+
+  print("O ponto é: ${ponto.toString()}"); 
+}
+
+##Questão 5
+
+import 'dart:math';
+
+class Ponto {
+  double x;
+  double y;
+
+  Ponto(this.x, this.y);
+
+  double distanciaOrigem() {
+    return sqrt(pow(x, 2) + pow(y, 2));
+  }
+
+  @override
+  String toString() {
+    return "($x, $y)";
+  }
+}
+
+void main() {
+  Ponto ponto1 = Ponto(4.0, 5.0); 
+  Ponto ponto2 = Ponto(5.0, 2.0); 
+
+  if (ponto1.distanciaOrigem() > ponto2.distanciaOrigem()) {
+    print("O ponto mais distante da origem é: ${ponto1.toString()}");
+  } else {
+    print("O ponto mais distante da origem é: ${ponto2.toString()}");
+  }
+}
+
+
+##Questão 6
+
+class Carro {
+  int distancia;
+  int combustivel;
+
+  Carro(this.distancia, this.combustivel);
+
+  void andar() {
+    if (combustivel >= 5) {
+      distancia += 5;
+      combustivel -= 5;
+      print("O carro andou 5 unidades e agora está a $distancia km da largada.");
+    } else {
+      print("O carro não tem combustível suficiente para andar.");
+    }
+  }
+
+  void abastecer(int quantidade) {
+    combustivel += quantidade;
+    print("O carro abasteceu $quantidade unidades e agora tem $combustivel de combustível.");
+  }
+}
+
+void main() {
+  Carro carro1 = Carro(10, 90);
+  Carro carro2 = Carro(50, 50);
+
+  carro1.andar();
+  carro2.andar();
+  carro1.abastecer(20);
+  carro2.abastecer(30);
+  carro1.andar();
+  carro2.andar();
+}
+
+
+##Questão 7
+
+class Aluno {
+  int matricula;
+  double nota;
+
+  Aluno(this.matricula, this.nota);
+}
+
+void main() {
+  Aluno aluno = Aluno(123456, 8.5);
+
+  print("Matrícula: ${aluno.matricula}");
+  print("Nota: ${aluno.nota}");
+}
+
+
+##Questão 8
+
+class Aluno {
+  String matricula;
+  List<double> notas = [];
+
+  Aluno(this.matricula);
+
+  void adicionarNota(double nota) {
+    notas.add(nota);
+  }
+
+  double calcularMedia() {
+    if (notas.isEmpty) return 0.0;
+
+    double soma = 0.0;
+    for (double nota in notas) {
+      soma += nota;
+    }
+
+    return soma / notas.length;
+  }
+}
+
+void main() {
+  Aluno aluno = Aluno("20221130081");
+
+  aluno.adicionarNota(7.5);
+  aluno.adicionarNota(8.0);
+  aluno.adicionarNota(6.5);
+
+  double media = aluno.calcularMedia();
+  print("A média do aluno é: ${media}");
+}
