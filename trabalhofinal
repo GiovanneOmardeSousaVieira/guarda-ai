@@ -1,0 +1,78 @@
+import 'package:flutter/material.dart';
+
+class Food {
+  final String name;
+  final String preparationTime;
+  final int servings;
+  final String imagePath;
+
+  Food({required this.name, required this.preparationTime, required this.servings, required this.imagePath});
+}
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  final List<Food> foods = [
+    Food(name: 'Lasanha', preparationTime: '45 minutos', servings: 4, imagePath: 'assets/lasanha.png'),
+    Food(name: 'Pizza', preparationTime: '30 minutos', servings: 2, imagePath: 'assets/pizza.png'),
+    Food(name: 'Sopa de legumes', preparationTime: '20 minutos', servings: 3, imagePath: 'assets/sopadelegumes.png'),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Food System',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Food System'),
+        ),
+        body: ListView.builder(
+          itemCount: foods.length,
+          itemBuilder: (context, index) {
+            return Card(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  ListTile(
+                    leading: Image.asset(
+                      foods[index].imagePath,
+                      width: 48,
+                      height: 48,
+                    ),
+                    title: Text(foods[index].name),
+                    subtitle: Text('Tempo de preparo: ${foods[index].preparationTime}'),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      TextButton(
+                        child: const Text('SERVE'),
+                        onPressed: () {/* ... */},
+                      ),
+                      const SizedBox(width: 8),
+                      TextButton(
+                        child: Text('${foods[index].servings} PESSOAS'),
+                        onPressed: () {/* ... */},
+                      ),
+                      const SizedBox(width: 8),
+                      IconButton(
+                        icon: Icon(Icons.share),
+                        onPressed: () {/* ... */},
+                      ),
+                      const SizedBox(width: 8),
+                    ],
+                  ),
+                ],
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
